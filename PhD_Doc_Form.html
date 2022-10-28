@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Форма аспіранта/докторанта</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style>
+        .required {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">Анкета для реєстрації аспіранта/докторанта в ЄДЕБО (версія 2022)</h1>
+        <div class="alert alert-warning" role="alert">Для коректної роботи цієї форми, потрібно мати активний доступ до Інтернет.</div>
+        <div class="alert alert-warning" role="alert">
+            Введені дані не відправляються через мережу Інтернет і можуть бути збережені на Вашому копм'ютері
+            лише після заповнення обов'язкових полів і натиснення на кнопку "Зберегти"
+        </div>
+        <p>Поля позначені <span class="required">*</span>, обов'язкові для заповнення</p>
+        <form class="mt-3 ml-3 mr-3">
+            <h3 class="text-center">Персональні дані</h3>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="FirstNameUkr">Ім'я (українською) <span class="required">*</span></label>
+                        <input type="text" class="form-control" id="FirstNameUkr" required>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="MiddleNameUkr">По батькові (українською) <span class="required">*</span></label>
+                        <input type="text" class="form-control" id="MiddleNameUkr" required>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="LastNameUkr">Прізвище (українською) <span class="required">*</span></label>
+                        <input type="text" class="form-control" id="LastNameUkr" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="FirstNameEng">Ім'я (англійською, як в закордонному паспорті) <span
+                                class="required">*</span></label>
+                        <input type="text" class="form-control" id="FirstNameEng" required>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="MiddleNameEng">По батькові (англійською)</label>
+                        <input type="text" class="form-control" id="MiddleNameEng">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="LastNameEng">Прізвище (англійською, як в закордонному паспорті) <span
+                                class="required">*</span></label>
+                        <input type="text" class="form-control" id="LastNameEng" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="BithDate">Дата народження <span class="required">*</span></label>
+                        <input type="date" class="form-control" id="BithDate" required>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="Gender">Стать <span class="required">*</span></label>
+                        <select class="form-control" id="Gender" required>
+                            <option value="" disabled selected>Оберіть Стать</option>
+                            <option value="Жіноча">Жіноча</option>
+                            <option value="Чоловіча">Чоловіча</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="Nationality">Громадянство <span class="required">*</span></label>
+                        <input type="text" class="form-control" id="Nationality" value="Україна" required>
+                    </div>
+                </div>
+            </div>
+            <h3 class="text-center mt-2">Паспорт/ID картка</h3>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="IDSerie">Серія</label>
+                        <input type="text" class="form-control" id="IDSerie" placeholder="лише для паспорту">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="IDNumber">Номер <span class="required">*</span></label>
+                        <input type="number" class="form-control" id="IDNumber" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="IDDate">Дата видачі <span class="required">*</span></label>
+                        <input type="date" class="form-control" id="IDDate" required>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="IDIssuer">Ким видано <span class="required">*</span></label>
+                        <input type="text" class="form-control" id="IDIssuer" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="IDExpiry">Дійсний до (лише для паспорта у формі картки)</label>
+                        <input type="date" class="form-control" id="IDExpiry">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="CodeUNZR">Код УНЗР (<a href="https://dmsu.gov.ua/news/region/6563.html" target="_blank">Де знайти?</a>)</label>
+                        <input type="text" class="form-control" id="CodeUNZR" placeholder="лише для паспорта у формі картки">
+                    </div>
+                </div>
+            </div>
+            <h3 class="text-center mt-2">Ідентифікаційний код</h3>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="TaxNumber">Номер</label>
+                        <input type="number" class="form-control" id="TaxNumber">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="TaxNumberDate">Дата видачі</label>
+                        <input type="date" class="form-control" id="TaxNumberDate">
+                    </div>
+                </div>
+            </div>
+            <h3 class="text-center mt-2">Документ про освіту</h3>
+            <p class="text-center">(на основі якого відбувається вступ)</p>
+            <div class="row">
+                <div class="col d-flex">
+                    <div class="form-group w-25">
+                        <label for="DiplomaSerie">Серія</label>
+                        <input type="text" class="form-control" id="DiplomaSerie">
+                    </div>
+                    <div class="form-group w-75">
+                        <label for="DiplomaNumber">Номер <span class="required">*</span></label>
+                        <input type="number" class="form-control" id="DiplomaNumber" required>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="DiplomaType">Тип документа <span class="required">*</span></label>
+                        <select class="form-control" id="DiplomaType" required>
+                            <option value="" disabled selected>Оберіть Тип документа</option>
+                            <option value="Свідоцтво про здобуття базової середньої освіти (з 2019)">Свідоцтво про здобуття базової середньої освіти (з 2019)</option>
+                            <option value="Свідоцтво про здобуття базової середньої освіти (для осіб з особливими освітніми потребами, зумовленими порушеннями інтелектуального розвитку) (з 2019)">Свідоцтво про здобуття базової середньої освіти (для осіб з особливими освітніми потребами, зумовленими порушеннями інтелектуального розвитку) (з 2019)</option>
+                            <option value="Свідоцтво про базову загальну середню освіту (до 2019)">Свідоцтво про базову загальну середню освіту (до 2019)</option>
+                            <option value="Свідоцтво про базову загальну середню освіту за спеціальною програмою (до 2019)">Свідоцтво про базову загальну середню освіту за спеціальною програмою (до 2019)</option>
+                            <option value="Свідоцтво про здобуття повної загальної середньої освіти (з 2019)">Свідоцтво про здобуття повної загальної середньої освіти (з 2019)</option>
+                            <option value="Атестат про повну загальну середню освіту (до 2019)">Атестат про повну загальну середню освіту (до 2019)</option>
+                            <option value="Свідоцтво про присвоєння (підвищення) робітничої кваліфікації державного зразка">Свідоцтво про присвоєння (підвищення) робітничої кваліфікації державного зразка</option>
+                            <option value="Диплом кваліфікованого робітника">Диплом кваліфікованого робітника</option>
+                            <option value="Диплом молодшого спеціаліста">Диплом молодшого спеціаліста</option>
+                            <option value="Диплом фахового молодшого бакалавра">Диплом фахового молодшого бакалавра</option>
+                            <option value="Диплом молодшого бакалавра">Диплом молодшого бакалавра</option>
+                            <option value="Диплом бакалавра">Диплом бакалавра</option>
+                            <option value="Диплом спеціаліста">Диплом спеціаліста</option>
+                            <option value="Диплом магістра">Диплом магістра</option>
+                            <option value="Диплом доктора філософії">Диплом доктора філософії</option>
+                            <option value="Диплом доктора мистецтва">Диплом доктора мистецтва</option>
+                            <option value="Диплом кандидата наук">Диплом кандидата наук</option>
+                            <option value="Диплом доктора наук">Диплом доктора наук</option>
+                            <option value="Довідка (тимчасова) про базову загальну середню освіту (ОЦ «Крим-Україна»)">Довідка (тимчасова) про базову загальну середню освіту (ОЦ «Крим-Україна»)</option>
+                            <option value="Довідка (тимчасова) про повну загальну середню освіту (ОЦ «Крим-Україна»)">Довідка (тимчасова) про повну загальну середню освіту (ОЦ «Крим-Україна»)</option>
+                            <option value="Довідка (тимчасова) про базову загальну середню освіту (ОЦ «Донбас-Україна»)">Довідка (тимчасова) про базову загальну середню освіту (ОЦ «Донбас-Україна»)</option>
+                            <option value="Довідка (тимчасова) про повну загальну середню освіту (ОЦ «Донбас-Україна»)">Довідка (тимчасова) про повну загальну середню освіту (ОЦ «Донбас-Україна»)</option>
+                            <option value="Довідка про навчання у загальноосвітній школі">Довідка про навчання у загальноосвітній школі</option>
+                            <option value="Довідка про закінчення повного курсу навчання за спеціальною програмою">Довідка про закінчення повного курсу навчання за спеціальною програмою</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="DiplomaDate">Дата видачі <span class="required">*</span></label>
+                        <input type="date" class="form-control" id="DiplomaDate" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="DiplomaIssuer">Заклад Освіти, що видав документ <span
+                                class="required">*</span></label>
+                        <input type="text" class="form-control" id="DiplomaIssuer" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="DiplomaSpeciality">Спеціальність <span class="required">*</span></label>
+                        <input type="text" class="form-control" id="DiplomaSpeciality" required>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="DiplomaQualification">Кваліфікація</label>
+                        <input type="text" class="form-control" id="DiplomaQualification">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="DiplomaScientificDegree">Науковий ступінь</label>
+                        <input type="text" class="form-control" id="DiplomaScientificDegree" placeholder="лише для документів докторів та кандидатів">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="DiplomaThesisTitle">Тема дисертації</label>
+                        <input type="text" class="form-control" id="DiplomaThesisTitle" placeholder="лише для документів докторів та кандидатів">
+                    </div>
+                </div>
+            </div>
+            <h3 class="text-center mt-2">Навчання</h3>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="StudyStatus">Статус навчання <span class="required">*</span></label>
+                        <select class="form-control" id="StudyActionType" required>
+                            <option value="" disabled selected>Оберіть Статус</option>
+                            <option value="Зараховано">Зараховано</option>
+                            <option value="Переведено (з іншого ЗО)">Переведено (з іншого ЗО)</option>
+                            <option value="Поновлено">Поновлено</option>
+                            <option value="Поновлено (з іншого ЗО)">Поновлено (з іншого ЗО)</option>
+                            <option value="Продовжено навчання (декларація)">Продовжено навчання (декларація)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="StudyStatusDate">Статус навчання діє з <span class="required">*</span></label>
+                        <input type="date" class="form-control" id="StudyStatusDate" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="StudySpeciality">Спеціальність <span class="required">*</span></label>
+                        <input type="text" class="form-control" id="StudySpeciality" value="091 Біологія" required>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="StudyLevel">Освітній ступінь (рівень) <span class="required">*</span></label>
+                        <select class="form-control" id="StudyLevel" required>
+                            <option value="" disabled selected>Оберіть</option>
+                            <option value="Доктор філософії">Доктор філософії</option>
+                            <option value="Доктор наук">Доктор наук</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="StudyDifferentSpeciality">Навчання за іншою спеціальністю <span
+                                class="required">*</span></label>
+                        <select class="form-control" id="StudyDifferentSpeciality" required>
+                            <option value="" disabled selected>Оберіть</option>
+                            <option value="Так">Так</option>
+                            <option value="Ні">Ні</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="StudyBeginDate">Дата початку навчання <span class="required">*</span></label>
+                        <input type="date" class="form-control" id="StudyBeginDate" required>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="StudyEndDate">Дата закінчення навчання <span class="required">*</span></label>
+                        <input type="date" class="form-control" id="StudyEndDate" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="StudyEnrollDocument">Вступ на основі <span class="required">*</span></label>
+                        <select class="form-control" id="StudyEnrollDocument" required>
+                            <option value="" disabled selected>Оберіть</option>
+                            <option value="Кваліфікований робітник">Кваліфікований робітник</option>
+                            <option value="Молодший спеціаліст">Молодший спеціаліст</option>
+                            <option value="Фаховий молодший бакалавр">Фаховий молодший бакалавр</option>
+                            <option value="Молодший бакалавр">Молодший бакалавр</option>
+                            <option value="Бакалавр">Бакалавр</option>
+                            <option value="Спеціаліст">Спеціаліст</option>
+                            <option value="Магістр">Магістр</option>
+                            <option value="Доктор філософії">Доктор філософії</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="StudyForm">Форма навчання <span class="required">*</span></label>
+                        <select class="form-control" id="StudyForm" required>
+                            <option value="" disabled selected>Оберіть</option>
+                            <option value="Вечірня">Вечірня</option>
+                            <option value="Денна">Денна</option>
+                            <option value="Дистанційна">Дистанційна</option>
+                            <option value="Заочна">Заочна</option>
+                            <option value="Поза аспірантурою">Поза аспірантурою</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="StudyPayment">Форма оплати <span class="required">*</span></label>
+                        <select class="form-control" id="StudyPayment" required>
+                            <option value="" disabled selected>Оберіть</option>
+                            <option value="Бюджет">Бюджет</option>
+                            <option value="Контракт">Контракт</option>
+                            <option value="Цільовий пільговий державний кредит">Цільовий пільговий державний кредит</option>
+                            <option value="Ваучер">Ваучер</option>
+                            <option value="Пільговий довгостроковий кредит">Пільговий довгостроковий кредит</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-check mt-3">
+                <input class="form-check-input" type="checkbox" value="Так" id="DataConfirmed" required>
+                <label class="form-check-label" for="DataConfirmed">
+                    <span class="required">*</span>Я підтерджую, що персональні дані були внесені корректно та
+                    перевірені на відповідність оригіналу. Я розумію, що у випадку допущення помилки, можливо буде
+                    необхідне моє безпосереднє звернення до МОН чи ЄДЕБО для її виправлення.
+                </label>
+            </div>
+            <div class="form-group mt-3">
+                <label for="UserInput">Питання, побажання або зауваження</label>
+                <textarea class="form-control" id="UserInput" rows="3"></textarea>
+            </div>
+            <div class="alert alert-info mt-3 mb-1" role="alert">Після натиснення кнопки Зберегти, Вам буде
+                запропоновано зберегти файл на Вашому ПК.<br />
+                Будь ласка, відправте цей файл електронним листом</div>
+            <button type="submit" class="btn btn-primary mt-2 mb-3">Зберегти</button>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script>
+        var form = document.querySelector('form');
+        form.addEventListener('submit', event => {
+            event.preventDefault();
+            saveData();
+        });
+
+        function saveData() {
+            var result = {};
+            var fn = '';
+            var ln = '';
+            for (var i = 0; i < form.elements.length; i++) {
+                var elem = form.elements[i];
+                if (elem.id === 'FirstNameEng') {
+                    fn = elem.value.trim();
+                }
+                if (elem.id === 'LastNameEng') {
+                    ln = elem.value.trim();
+                }
+                result[elem.id] = elem.value ? elem.value.trim() : elem.value;
+            }
+            var fileName = fn + '_' + ln + '_form.json';
+            var fileToSave = new Blob([JSON.stringify(result, undefined, 2)], {
+                type: 'application/json',
+                name: fileName
+            });
+            var a = document.createElement('a');
+            a.href = URL.createObjectURL(fileToSave);
+            a.download = fileName;
+            a.click();
+        }
+    </script>
+</body>
+
+</html>
