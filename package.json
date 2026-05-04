@@ -1,0 +1,60 @@
+{
+  "name": "edbo-forms",
+  "version": "0.1.1",
+  "private": true,
+  "dependencies": {
+    "@jsonforms/core": "^3.7.0",
+    "@jsonforms/material-renderers": "^3.7.0",
+    "@jsonforms/react": "^3.7.0",
+    "@mui/icons-material": "^7.3.10",
+    "@mui/lab": "^7.0.1-beta.24",
+    "@mui/material": "^7.3.10",
+    "@mui/styles": "^6.4.8",
+    "@mui/x-date-pickers": "^8.28.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@eslint/compat": "^2.0.5",
+    "@eslint/eslintrc": "^3.3.5",
+    "@eslint/js": "^10.0.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/node": "^24.12.2",
+    "@types/react": "^18.3.28",
+    "@types/react-dom": "^18.3.7",
+    "@typescript-eslint/eslint-plugin": "^8.59.1",
+    "@typescript-eslint/parser": "^8.59.1",
+    "@vitejs/plugin-react": "^6.0.1",
+    "@vitest/coverage-v8": "^4.1.5",
+    "cross-env": "^10.1.0",
+    "eslint": "^10.3.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.6.0",
+    "jsdom": "^29.1.1",
+    "prettier": "^3.8.3",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.10",
+    "vitest": "^4.1.5"
+  },
+  "scripts": {
+    "dev:employee": "cross-env VITE_APP_VARIANT=employee vite --port 3000",
+    "dev:naqa": "cross-env VITE_APP_VARIANT=naqa-notification vite --port 3000",
+    "dev:student": "cross-env VITE_APP_VARIANT=student vite --port 3000",
+    "build": "tsc && vite build",
+    "build:all": "npm run build:employee && npm run build:naqa && npm run build:student",
+    "build:employee": "cross-env VITE_APP_VARIANT=employee vite build",
+    "build:naqa": "cross-env VITE_APP_VARIANT=naqa-notification vite build",
+    "build:student": "cross-env VITE_APP_VARIANT=student vite build",
+    "format": "prettier --write \"**/*.{ts,tsx,md,css,scss}\"",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "start": "vite preview --port 3000",
+    "test": "vitest run --coverage"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

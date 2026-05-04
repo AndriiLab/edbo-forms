@@ -1,0 +1,581 @@
+{
+  "type": "Categorization",
+  "elements": [
+    {
+      "type": "Category",
+      "label": "Персональні дані",
+      "elements": [
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Ім'я (українською)",
+              "scope": "#/properties/personal/properties/firstNameUkr"
+            },
+            {
+              "type": "Control",
+              "label": "По батькові (українською)",
+              "scope": "#/properties/personal/properties/middleNameUkr"
+            },
+            {
+              "type": "Control",
+              "label": "Прізвище (українською)",
+              "scope": "#/properties/personal/properties/lastNameUkr"
+            }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Ім'я (англійською, як в закордонному паспорті)",
+              "scope": "#/properties/personal/properties/firstNameEng"
+            },
+            {
+              "type": "Control",
+              "label": "По батькові (англійською)",
+              "scope": "#/properties/personal/properties/middleNameEng"
+            },
+            {
+              "type": "Control",
+              "label": "Прізвище (англійською, як в закордонному паспорті)",
+              "scope": "#/properties/personal/properties/lastNameEng"
+            }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Дата народження",
+              "scope": "#/properties/personal/properties/birthDate"
+            },
+            {
+              "type": "Control",
+              "label": "Стать",
+              "scope": "#/properties/personal/properties/gender"
+            },
+            {
+              "type": "Control",
+              "label": "Громадянство",
+              "scope": "#/properties/personal/properties/nationality"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Паспортні дані",
+      "elements": [
+        {
+          "type": "Group",
+          "label": "Посвідчення особи",
+          "elements": [
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "label": "Тип документу",
+                  "scope": "#/properties/passport/properties/form"
+                }
+              ]
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "label": "Серія",
+                  "scope": "#/properties/passport/properties/series",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/passport/properties/form",
+                      "schema": {
+                        "enum": [
+                          "Свідоцтво про народження",
+                          "Паспорт громадянина України (поліграфічний)",
+                          "Паспортний документ іноземця",
+                          "Тимчасове посвідчення громадянина України",
+                          "Посвідка на постійне проживання в Україні",
+                          "Посвідка на тимчасове проживання в Україні",
+                          "Паспорт громадянина України для виїзду за кордон",
+                          "Військовий квиток"
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "Control",
+                  "label": "Номер",
+                  "scope": "#/properties/passport/properties/number"
+                }
+              ]
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "label": "Ким виданий",
+                  "scope": "#/properties/passport/properties/issuer"
+                }
+              ]
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "label": "Дата видачі",
+                  "scope": "#/properties/passport/properties/issuedDate"
+                },
+                {
+                  "type": "Control",
+                  "label": "Дійсний до",
+                  "scope": "#/properties/passport/properties/expiredDate",
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/passport/properties/form",
+                      "schema": {
+                        "enum": [
+                          "Паспорт громадянина України з безконтактним електронним носієм",
+                          "Паспорт громадянина України, що не містить безконтактного електронного носія",
+                          "Тимчасове посвідчення громадянина України",
+                          "Посвідка на постійне проживання з безконтактним електронним носієм",
+                          "Посвідка на тимчасове проживання з безконтактним електронним носієм",
+                          "Посвідчення біженця",
+                          "Посвідчення особи, якій надано тимчасовий захист",
+                          "Посвідчення особи, яка потребує додаткового захисту",
+                          "Довідка про звернення за захистом в Україні"
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "Control",
+                  "label": "Код УНЗР",
+                  "scope": "#/properties/passport/properties/unzrCode",
+                  "options": {
+                    "showUnfocusedDescription": true
+                  },
+                  "rule": {
+                    "effect": "SHOW",
+                    "condition": {
+                      "scope": "#/properties/passport/properties/form",
+                      "schema": {
+                        "enum": [
+                          "Паспорт громадянина України з безконтактним електронним носієм",
+                          "Паспорт громадянина України, що не містить безконтактного електронного носія",
+                          "Тимчасове посвідчення громадянина України",
+                          "Посвідка на постійне проживання в Україні",
+                          "Посвідка на тимчасове проживання в Україні",
+                          "Посвідка на постійне проживання з безконтактним електронним носієм",
+                          "Посвідка на тимчасове проживання з безконтактним електронним носієм",
+                          "Посвідчення біженця",
+                          "Посвідчення особи, якій надано тимчасовий захист",
+                          "Посвідчення особи, яка потребує додаткового захисту",
+                          "Довідка про звернення за захистом в Україні",
+                          "Паспорт громадянина України для виїзду за кордон"
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "label": "Примітка",
+                  "scope": "#/properties/passport/properties/note",
+                  "options": {
+                    "multi": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Group",
+          "label": "Ідентифікаційний код",
+          "elements": [
+            {
+              "type": "HorizontalLayout",
+              "elements": [
+                {
+                  "type": "Control",
+                  "label": "Номер",
+                  "scope": "#/properties/taxCode/properties/number"
+                },
+                {
+                  "type": "Control",
+                  "label": "Дата видачі",
+                  "scope": "#/properties/taxCode/properties/issuedDate"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Документ про освіту",
+      "elements": [
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Тип документу (на основі якого відбувається вступ)",
+              "scope": "#/properties/educationDocument/properties/form"
+            }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Серія",
+              "scope": "#/properties/educationDocument/properties/series"
+            },
+            {
+              "type": "Control",
+              "label": "Номер",
+              "scope": "#/properties/educationDocument/properties/number"
+            }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Ким виданий",
+              "scope": "#/properties/educationDocument/properties/issuer"
+            }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Професія(ї)",
+              "scope": "#/properties/educationDocument/properties/professions",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/educationDocument/properties/form",
+                  "schema": {
+                    "enum": [
+                      "Свідоцтво про присвоєння (підвищення) робітничої кваліфікації державного зразка",
+                      "Диплом кваліфікованого робітника"
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Код спеціальності",
+              "scope": "#/properties/educationDocument/properties/specialityCode",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/educationDocument/properties/form",
+                  "schema": {
+                    "enum": [
+                      "Диплом молодшого спеціаліста",
+                      "Диплом фахового молодшого бакалавра",
+                      "Диплом молодшого бакалавра",
+                      "Диплом бакалавра",
+                      "Диплом спеціаліста",
+                      "Диплом магістра",
+                      "Диплом доктора філософії",
+                      "Диплом доктора мистецтва",
+                      "Диплом кандидата наук",
+                      "Диплом доктора наук"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "type": "Control",
+              "label": "Спеціальність",
+              "scope": "#/properties/educationDocument/properties/speciality",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/educationDocument/properties/form",
+                  "schema": {
+                    "enum": [
+                      "Диплом молодшого спеціаліста",
+                      "Диплом фахового молодшого бакалавра",
+                      "Диплом молодшого бакалавра",
+                      "Диплом бакалавра",
+                      "Диплом спеціаліста",
+                      "Диплом магістра",
+                      "Диплом доктора філософії",
+                      "Диплом доктора мистецтва",
+                      "Диплом кандидата наук",
+                      "Диплом доктора наук"
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Кваліфікація",
+              "scope": "#/properties/educationDocument/properties/qualification",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/educationDocument/properties/form",
+                  "schema": {
+                    "enum": [
+                      "Диплом молодшого спеціаліста",
+                      "Диплом фахового молодшого бакалавра",
+                      "Диплом молодшого бакалавра",
+                      "Диплом бакалавра",
+                      "Диплом спеціаліста",
+                      "Диплом магістра"
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Науковий ступінь",
+              "scope": "#/properties/educationDocument/properties/scientificDegree",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/educationDocument/properties/form",
+                  "schema": {
+                    "enum": [
+                      "Диплом доктора філософії",
+                      "Диплом доктора мистецтва",
+                      "Диплом кандидата наук",
+                      "Диплом доктора наук"
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Тема дисертації",
+              "scope": "#/properties/educationDocument/properties/thesisName",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/educationDocument/properties/form",
+                  "schema": {
+                    "enum": [
+                      "Диплом доктора філософії",
+                      "Диплом доктора мистецтва",
+                      "Диплом кандидата наук",
+                      "Диплом доктора наук"
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Дата видачі",
+              "scope": "#/properties/educationDocument/properties/issuedDate"
+            },
+            {
+              "type": "Control",
+              "label": "Відзнака",
+              "scope": "#/properties/educationDocument/properties/honors"
+            }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Примітка",
+              "scope": "#/properties/educationDocument/properties/note",
+              "options": {
+                "multi": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Навчання",
+      "elements": [
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Статус навчання",
+              "scope": "#/properties/education/properties/status"
+            },
+            {
+              "type": "Control",
+              "label": "Діє з",
+              "scope": "#/properties/education/properties/activeSince"
+            },
+            {
+              "type": "Control",
+              "label": "Дата початку навчання",
+              "scope": "#/properties/education/properties/startDate"
+            },
+            {
+              "type": "Control",
+              "label": "Дата закінчення навчання",
+              "scope": "#/properties/education/properties/endDate"
+            }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Номер наказу про встановлення статусу",
+              "scope": "#/properties/education/properties/decreeNumber"
+            },
+            {
+              "type": "Control",
+              "label": "Дата наказу про встановлення статусу",
+              "scope": "#/properties/education/properties/decreeDate"
+            }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Освітній ступінь (рівень)",
+              "scope": "#/properties/education/properties/desiredDegree"
+            },
+            {
+              "type": "Control",
+              "label": "Скорочений термін підготовки",
+              "scope": "#/properties/education/properties/isShortTerm"
+            },
+            {
+              "type": "Control",
+              "label": "Здобуття ступеня (рівня) за іншою спеціальністю",
+              "scope": "#/properties/education/properties/isOtherSpeciality"
+            }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Форма навчання",
+              "scope": "#/properties/education/properties/educationType"
+            },
+            {
+              "type": "Control",
+              "label": "Джерело фінансування",
+              "scope": "#/properties/education/properties/fundingType"
+            },
+            {
+              "type": "Control",
+              "label": "Редакція",
+              "scope": "#/properties/education/properties/edition"
+            },
+            {
+              "type": "Control",
+              "label": "Спеціальність",
+              "scope": "#/properties/education/properties/speciality"
+            }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Примітка",
+              "scope": "#/properties/education/properties/note",
+              "options": {
+                "multi": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Запевнення",
+      "elements": [
+        {
+          "type": "Control",
+          "label": "Питання, побажання або зауваження",
+          "scope": "#/properties/suggestions",
+          "options": {
+            "multi": true
+          }
+        },
+        {
+          "type": "Control",
+          "label": "* Я підтверджую, що персональні дані були внесені коректно та перевірені на відповідність оригіналу. Я розумію, що у випадку допущення помилки, можливо буде необхідне моє безпосереднє звернення до МОН чи Інфоресурсу (ЄДЕБО) для її виправлення.",
+          "scope": "#/properties/dataVerified"
+        }
+      ]
+    }
+  ],
+  "options": {
+    "variant": "stepper",
+    "showNavButtons": true
+  }
+}

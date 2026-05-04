@@ -1,0 +1,1098 @@
+{
+  "type": "Categorization",
+  "elements": [
+    {
+      "type": "Category",
+      "label": "Здобувач",
+      "elements": [
+        {
+          "type": "Control",
+          "label": "ПІБ здобувача ступеня доктора філософії",
+          "scope": "#/properties/student/properties/studentName"
+        },
+        {
+          "type": "Control",
+          "label": "Стать здобувача",
+          "scope": "#/properties/student/properties/studentGender"
+        },
+        {
+          "type": "Control",
+          "label": "Освітньо-наукова програма",
+          "scope": "#/properties/student/properties/op"
+        },
+        {
+          "type": "Control",
+          "label": "Окремі елементи освітньо-наукової програми забезпечуються іншим закладом вищої освіти/науковою установою (у тому числі іноземним)",
+          "scope": "#/properties/student/properties/opInCooperationWithAnotherHei"
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Дата початку підготовки за ОНП",
+              "scope": "#/properties/student/properties/startONPTime"
+            },
+            {
+              "type": "Control",
+              "label": "Дата завершення підготовки за ОНП",
+              "scope": "#/properties/student/properties/endONPTime"
+            },
+            {
+              "type": "Control",
+              "label": "Дата завершення навчання на попередньому освітньому рівні",
+              "scope": "#/properties/student/properties/endLastEduLevelTime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Дисертація",
+      "elements": [
+        {
+          "type": "Control",
+          "label": "Тема дисертації",
+          "scope": "#/properties/thesis/properties/thesisTopic"
+        },
+        {
+          "type": "Control",
+          "label": "Ключові слова",
+          "scope": "#/properties/thesis/properties/thesisKeywords"
+        },
+        {
+          "type": "Control",
+          "label": "Посилання, за яким розміщено текст дисертації",
+          "scope": "#/properties/thesis/properties/thesisLink"
+        },
+        {
+          "type": "Control",
+          "label": "Анотація дисертації",
+          "scope": "#/properties/thesis/properties/thesisAnnotation",
+          "options": {
+            "multi": true
+          }
+        },
+        {
+          "type": "AccordionGroup",
+          "label": "Публікації здобувача за темою дисертації",
+          "elements": [
+            {
+              "type": "ListWithDetail",
+              "label": "Список",
+              "scope": "#/properties/thesis/properties/thesisPublications",
+              "options": {
+                "detail": {
+                  "type": "VerticalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "label": "Тип публікації",
+                      "scope": "#/properties/type"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "DOI",
+                      "scope": "#/properties/doi",
+                      "rule": {
+                        "effect": "SHOW",
+                        "condition": {
+                          "scope": "#/properties/type",
+                          "schema": {
+                            "enum": [
+                              "Публікація в українському періодичному фаховому виданні",
+                              "Публікація в іноземному періодичному індексованому в WoS/Scopus виданні"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "label": "ISSN (e-ISSN) видання",
+                      "scope": "#/properties/issn",
+                      "rule": {
+                        "effect": "SHOW",
+                        "condition": {
+                          "scope": "#/properties/type",
+                          "schema": {
+                            "enum": [
+                              "Публікація в іноземному періодичному індексованому в WoS/Scopus виданні"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Посилання",
+                      "scope": "#/properties/link"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Бібліографічний опис",
+                      "scope": "#/properties/description",
+                      "options": {
+                        "multi": true
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Рік публікації",
+                      "scope": "#/properties/year"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Ключові слова",
+                      "scope": "#/properties/keywords"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Публікація є одноосібною",
+                      "scope": "#/properties/hasSoleAuthorship"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Публікація містить державну таємницю/службову інформацію",
+                      "scope": "#/properties/hasSecrets"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Захист",
+      "elements": [
+        {
+          "type": "Control",
+          "label": "Дата рішення Вченої ради про утворення разової ради",
+          "scope": "#/properties/defence/properties/svrCreationDate"
+        },
+        {
+          "type": "Control",
+          "label": "Дата наказу про введення у дію рішення Вченої ради про утворення разової ради",
+          "scope": "#/properties/defence/properties/svrOrderCreationDate"
+        },
+        {
+          "type": "Control",
+          "label": "Посилання, за яким здійснюватиметься онлайн-трансляція захисту",
+          "scope": "#/properties/defence/properties/defenseBroadcastLink"
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Голова ради",
+      "elements": [
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Є іноземним вченим",
+              "scope": "#/properties/svrMembersHead/properties/isForeigner"
+            },
+            {
+              "type": "Control",
+              "label": "Є працівником військового вищого навчального закладу",
+              "scope": "#/properties/svrMembersHead/properties/isMilitary"
+            }
+          ]
+        },
+        {
+          "type": "Control",
+          "label": "Заклад",
+          "scope": "#/properties/svrMembersHead/properties/hei"
+        },
+        {
+          "type": "Control",
+          "label": "Факультет/кафедра/відділ",
+          "scope": "#/properties/svrMembersHead/properties/faculty"
+        },
+        {
+          "type": "Control",
+          "label": "ПІБ члена ради",
+          "scope": "#/properties/svrMembersHead/properties/name"
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Посада",
+              "scope": "#/properties/svrMembersHead/properties/position"
+            },
+            {
+              "type": "Control",
+              "label": "ID ЄДЕБО (якщо Вам відоме)",
+              "scope": "#/properties/svrMembersHead/properties/edbo"
+            },
+            {
+              "type": "Control",
+              "label": "ORCID",
+              "scope": "#/properties/svrMembersHead/properties/orcid"
+            }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Науковий ступінь",
+              "scope": "#/properties/svrMembersHead/properties/degreeType"
+            },
+            {
+              "type": "Control",
+              "label": "Спеціальність",
+              "scope": "#/properties/svrMembersHead/properties/degreeSpec"
+            },
+            {
+              "type": "Control",
+              "label": "Дата отримання диплома доктора філософії (кандидата наук)",
+              "scope": "#/properties/svrMembersHead/properties/phdAwardedOn",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/svrMembersHead/properties/degreeType",
+                  "schema": {
+                    "enum": [
+                      "Доктор філософії",
+                      "Кандидат наук"
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "AccordionGroup",
+          "label": "Публікації голови ради",
+          "elements": [
+            {
+              "type": "ListWithDetail",
+              "label": "Список",
+              "scope": "#/properties/svrMembersHead/properties/publications",
+              "options": {
+                "detail": {
+                  "type": "VerticalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "label": "Тип публікації",
+                      "scope": "#/properties/type"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "DOI",
+                      "scope": "#/properties/doi",
+                      "rule": {
+                        "effect": "SHOW",
+                        "condition": {
+                          "scope": "#/properties/type",
+                          "schema": {
+                            "enum": [
+                              "Публікація в українському періодичному фаховому виданні",
+                              "Публікація в іноземному періодичному індексованому в WoS/Scopus виданні"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "label": "ISSN (e-ISSN) видання",
+                      "scope": "#/properties/issn",
+                      "rule": {
+                        "effect": "SHOW",
+                        "condition": {
+                          "scope": "#/properties/type",
+                          "schema": {
+                            "enum": [
+                              "Публікація в іноземному періодичному індексованому в WoS/Scopus виданні"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Посилання",
+                      "scope": "#/properties/link"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Бібліографічний опис",
+                      "scope": "#/properties/description",
+                      "options": {
+                        "multi": true
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Рік публікації",
+                      "scope": "#/properties/year"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Ключові слова",
+                      "scope": "#/properties/keywords"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Публікація є одноосібною",
+                      "scope": "#/properties/hasSoleAuthorship"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Публікація містить державну таємницю/службову інформацію",
+                      "scope": "#/properties/hasSecrets"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Перший рецензент",
+      "elements": [
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Є іноземним вченим",
+              "scope": "#/properties/svrMembersReviewer1/properties/isForeigner"
+            },
+            {
+              "type": "Control",
+              "label": "Є працівником військового вищого навчального закладу",
+              "scope": "#/properties/svrMembersReviewer1/properties/isMilitary"
+            }
+          ]
+        },
+        {
+          "type": "Control",
+          "label": "Заклад",
+          "scope": "#/properties/svrMembersReviewer1/properties/hei"
+        },
+        {
+          "type": "Control",
+          "label": "Факультет/кафедра/відділ",
+          "scope": "#/properties/svrMembersReviewer1/properties/faculty"
+        },
+        {
+          "type": "Control",
+          "label": "ПІБ члена ради",
+          "scope": "#/properties/svrMembersReviewer1/properties/name"
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Посада",
+              "scope": "#/properties/svrMembersReviewer1/properties/position"
+            },
+            {
+              "type": "Control",
+              "label": "ID ЄДЕБО (якщо Вам відоме)",
+              "scope": "#/properties/svrMembersReviewer1/properties/edbo"
+            },
+            {
+              "type": "Control",
+              "label": "ORCID",
+              "scope": "#/properties/svrMembersReviewer1/properties/orcid"
+            }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Науковий ступінь",
+              "scope": "#/properties/svrMembersReviewer1/properties/degreeType"
+            },
+            {
+              "type": "Control",
+              "label": "Спеціальність",
+              "scope": "#/properties/svrMembersReviewer1/properties/degreeSpec"
+            },
+            {
+              "type": "Control",
+              "label": "Дата отримання диплома доктора філософії (кандидата наук)",
+              "scope": "#/properties/svrMembersReviewer1/properties/phdAwardedOn",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/svrMembersReviewer1/properties/degreeType",
+                  "schema": {
+                    "enum": [
+                      "Доктор філософії",
+                      "Кандидат наук"
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "AccordionGroup",
+          "label": "Публікації першого рецензента",
+          "elements": [
+            {
+              "type": "ListWithDetail",
+              "label": "Список",
+              "scope": "#/properties/svrMembersReviewer1/properties/publications",
+              "options": {
+                "detail": {
+                  "type": "VerticalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "label": "Тип публікації",
+                      "scope": "#/properties/type"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "DOI",
+                      "scope": "#/properties/doi",
+                      "rule": {
+                        "effect": "SHOW",
+                        "condition": {
+                          "scope": "#/properties/type",
+                          "schema": {
+                            "enum": [
+                              "Публікація в українському періодичному фаховому виданні",
+                              "Публікація в іноземному періодичному індексованому в WoS/Scopus виданні"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "label": "ISSN (e-ISSN) видання",
+                      "scope": "#/properties/issn",
+                      "rule": {
+                        "effect": "SHOW",
+                        "condition": {
+                          "scope": "#/properties/type",
+                          "schema": {
+                            "enum": [
+                              "Публікація в іноземному періодичному індексованому в WoS/Scopus виданні"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Посилання",
+                      "scope": "#/properties/link"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Бібліографічний опис",
+                      "scope": "#/properties/description",
+                      "options": {
+                        "multi": true
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Рік публікації",
+                      "scope": "#/properties/year"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Ключові слова",
+                      "scope": "#/properties/keywords"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Публікація є одноосібною",
+                      "scope": "#/properties/hasSoleAuthorship"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Публікація містить державну таємницю/службову інформацію",
+                      "scope": "#/properties/hasSecrets"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Другий рецензент",
+      "elements": [
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Є іноземним вченим",
+              "scope": "#/properties/svrMembersReviewer2/properties/isForeigner"
+            },
+            {
+              "type": "Control",
+              "label": "Є працівником військового вищого навчального закладу",
+              "scope": "#/properties/svrMembersReviewer2/properties/isMilitary"
+            }
+          ]
+        },
+        {
+          "type": "Control",
+          "label": "Заклад",
+          "scope": "#/properties/svrMembersReviewer2/properties/hei"
+        },
+        {
+          "type": "Control",
+          "label": "Факультет/кафедра/відділ",
+          "scope": "#/properties/svrMembersReviewer2/properties/faculty"
+        },
+        {
+          "type": "Control",
+          "label": "ПІБ члена ради",
+          "scope": "#/properties/svrMembersReviewer2/properties/name"
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Посада",
+              "scope": "#/properties/svrMembersReviewer2/properties/position"
+            },
+            {
+              "type": "Control",
+              "label": "ID ЄДЕБО (якщо Вам відоме)",
+              "scope": "#/properties/svrMembersReviewer2/properties/edbo"
+            },
+            {
+              "type": "Control",
+              "label": "ORCID",
+              "scope": "#/properties/svrMembersReviewer2/properties/orcid"
+            }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Науковий ступінь",
+              "scope": "#/properties/svrMembersReviewer2/properties/degreeType"
+            },
+            {
+              "type": "Control",
+              "label": "Спеціальність",
+              "scope": "#/properties/svrMembersReviewer2/properties/degreeSpec"
+            },
+            {
+              "type": "Control",
+              "label": "Дата отримання диплома доктора філософії (кандидата наук)",
+              "scope": "#/properties/svrMembersReviewer2/properties/phdAwardedOn",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/svrMembersReviewer2/properties/degreeType",
+                  "schema": {
+                    "enum": [
+                      "Доктор філософії",
+                      "Кандидат наук"
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "AccordionGroup",
+          "label": "Публікації другого рецензента",
+          "elements": [
+            {
+              "type": "ListWithDetail",
+              "label": "Список",
+              "scope": "#/properties/svrMembersReviewer2/properties/publications",
+              "options": {
+                "detail": {
+                  "type": "VerticalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "label": "Тип публікації",
+                      "scope": "#/properties/type"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "DOI",
+                      "scope": "#/properties/doi",
+                      "rule": {
+                        "effect": "SHOW",
+                        "condition": {
+                          "scope": "#/properties/type",
+                          "schema": {
+                            "enum": [
+                              "Публікація в українському періодичному фаховому виданні",
+                              "Публікація в іноземному періодичному індексованому в WoS/Scopus виданні"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "label": "ISSN (e-ISSN) видання",
+                      "scope": "#/properties/issn",
+                      "rule": {
+                        "effect": "SHOW",
+                        "condition": {
+                          "scope": "#/properties/type",
+                          "schema": {
+                            "enum": [
+                              "Публікація в іноземному періодичному індексованому в WoS/Scopus виданні"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Посилання",
+                      "scope": "#/properties/link"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Бібліографічний опис",
+                      "scope": "#/properties/description",
+                      "options": {
+                        "multi": true
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Рік публікації",
+                      "scope": "#/properties/year"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Ключові слова",
+                      "scope": "#/properties/keywords"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Публікація є одноосібною",
+                      "scope": "#/properties/hasSoleAuthorship"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Публікація містить державну таємницю/службову інформацію",
+                      "scope": "#/properties/hasSecrets"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Перший опонент",
+      "elements": [
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Є іноземним вченим",
+              "scope": "#/properties/svrMembersOpponent1/properties/isForeigner"
+            },
+            {
+              "type": "Control",
+              "label": "Є працівником військового вищого навчального закладу",
+              "scope": "#/properties/svrMembersOpponent1/properties/isMilitary"
+            }
+          ]
+        },
+        {
+          "type": "Control",
+          "label": "Заклад",
+          "scope": "#/properties/svrMembersOpponent1/properties/hei"
+        },
+        {
+          "type": "Control",
+          "label": "Факультет/кафедра/відділ",
+          "scope": "#/properties/svrMembersOpponent1/properties/faculty"
+        },
+        {
+          "type": "Control",
+          "label": "ПІБ члена ради",
+          "scope": "#/properties/svrMembersOpponent1/properties/name"
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Посада",
+              "scope": "#/properties/svrMembersOpponent1/properties/position"
+            },
+            {
+              "type": "Control",
+              "label": "ID ЄДЕБО (якщо Вам відоме)",
+              "scope": "#/properties/svrMembersOpponent1/properties/edbo"
+            },
+            {
+              "type": "Control",
+              "label": "ORCID",
+              "scope": "#/properties/svrMembersOpponent1/properties/orcid"
+            }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Науковий ступінь",
+              "scope": "#/properties/svrMembersOpponent1/properties/degreeType"
+            },
+            {
+              "type": "Control",
+              "label": "Спеціальність",
+              "scope": "#/properties/svrMembersOpponent1/properties/degreeSpec"
+            },
+            {
+              "type": "Control",
+              "label": "Дата отримання диплома доктора філософії (кандидата наук)",
+              "scope": "#/properties/svrMembersOpponent1/properties/phdAwardedOn",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/svrMembersOpponent1/properties/degreeType",
+                  "schema": {
+                    "enum": [
+                      "Доктор філософії",
+                      "Кандидат наук"
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "AccordionGroup",
+          "label": "Публікації першого опонента",
+          "elements": [
+            {
+              "type": "ListWithDetail",
+              "label": "Список",
+              "scope": "#/properties/svrMembersOpponent1/properties/publications",
+              "options": {
+                "detail": {
+                  "type": "VerticalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "label": "Тип публікації",
+                      "scope": "#/properties/type"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "DOI",
+                      "scope": "#/properties/doi",
+                      "rule": {
+                        "effect": "SHOW",
+                        "condition": {
+                          "scope": "#/properties/type",
+                          "schema": {
+                            "enum": [
+                              "Публікація в українському періодичному фаховому виданні",
+                              "Публікація в іноземному періодичному індексованому в WoS/Scopus виданні"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "label": "ISSN (e-ISSN) видання",
+                      "scope": "#/properties/issn",
+                      "rule": {
+                        "effect": "SHOW",
+                        "condition": {
+                          "scope": "#/properties/type",
+                          "schema": {
+                            "enum": [
+                              "Публікація в іноземному періодичному індексованому в WoS/Scopus виданні"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Посилання",
+                      "scope": "#/properties/link"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Бібліографічний опис",
+                      "scope": "#/properties/description",
+                      "options": {
+                        "multi": true
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Рік публікації",
+                      "scope": "#/properties/year"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Ключові слова",
+                      "scope": "#/properties/keywords"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Публікація є одноосібною",
+                      "scope": "#/properties/hasSoleAuthorship"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Публікація містить державну таємницю/службову інформацію",
+                      "scope": "#/properties/hasSecrets"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Другий опонент",
+      "elements": [
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Є іноземним вченим",
+              "scope": "#/properties/svrMembersOpponent2/properties/isForeigner"
+            },
+            {
+              "type": "Control",
+              "label": "Є працівником військового вищого навчального закладу",
+              "scope": "#/properties/svrMembersOpponent2/properties/isMilitary"
+            }
+          ]
+        },
+        {
+          "type": "Control",
+          "label": "Заклад",
+          "scope": "#/properties/svrMembersOpponent2/properties/hei"
+        },
+        {
+          "type": "Control",
+          "label": "Факультет/кафедра/відділ",
+          "scope": "#/properties/svrMembersOpponent2/properties/faculty"
+        },
+        {
+          "type": "Control",
+          "label": "ПІБ члена ради",
+          "scope": "#/properties/svrMembersOpponent2/properties/name"
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Посада",
+              "scope": "#/properties/svrMembersOpponent2/properties/position"
+            },
+            {
+              "type": "Control",
+              "label": "ID ЄДЕБО (якщо Вам відоме)",
+              "scope": "#/properties/svrMembersOpponent2/properties/edbo"
+            },
+            {
+              "type": "Control",
+              "label": "ORCID",
+              "scope": "#/properties/svrMembersOpponent2/properties/orcid"
+            }
+          ]
+        },
+        {
+          "type": "HorizontalLayout",
+          "elements": [
+            {
+              "type": "Control",
+              "label": "Науковий ступінь",
+              "scope": "#/properties/svrMembersOpponent2/properties/degreeType"
+            },
+            {
+              "type": "Control",
+              "label": "Спеціальність",
+              "scope": "#/properties/svrMembersOpponent2/properties/degreeSpec"
+            },
+            {
+              "type": "Control",
+              "label": "Дата отримання диплома доктора філософії (кандидата наук)",
+              "scope": "#/properties/svrMembersOpponent2/properties/phdAwardedOn",
+              "rule": {
+                "effect": "SHOW",
+                "condition": {
+                  "scope": "#/properties/svrMembersOpponent2/properties/degreeType",
+                  "schema": {
+                    "enum": [
+                      "Доктор філософії",
+                      "Кандидат наук"
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "AccordionGroup",
+          "label": "Публікації другого опонента",
+          "elements": [
+            {
+              "type": "ListWithDetail",
+              "label": "Список",
+              "scope": "#/properties/svrMembersOpponent2/properties/publications",
+              "options": {
+                "detail": {
+                  "type": "VerticalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "label": "Тип публікації",
+                      "scope": "#/properties/type"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "DOI",
+                      "scope": "#/properties/doi",
+                      "rule": {
+                        "effect": "SHOW",
+                        "condition": {
+                          "scope": "#/properties/type",
+                          "schema": {
+                            "enum": [
+                              "Публікація в українському періодичному фаховому виданні",
+                              "Публікація в іноземному періодичному індексованому в WoS/Scopus виданні"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "label": "ISSN (e-ISSN) видання",
+                      "scope": "#/properties/issn",
+                      "rule": {
+                        "effect": "SHOW",
+                        "condition": {
+                          "scope": "#/properties/type",
+                          "schema": {
+                            "enum": [
+                              "Публікація в іноземному періодичному індексованому в WoS/Scopus виданні"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Посилання",
+                      "scope": "#/properties/link"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Бібліографічний опис",
+                      "scope": "#/properties/description",
+                      "options": {
+                        "multi": true
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Рік публікації",
+                      "scope": "#/properties/year"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Ключові слова",
+                      "scope": "#/properties/keywords"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Публікація є одноосібною",
+                      "scope": "#/properties/hasSoleAuthorship"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Публікація містить державну таємницю/службову інформацію",
+                      "scope": "#/properties/hasSecrets"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Category",
+      "label": "Запевнення",
+      "elements": [
+        {
+          "type": "Control",
+          "label": "Питання, побажання або зауваження",
+          "scope": "#/properties/suggestions",
+          "options": {
+            "multi": true
+          }
+        },
+        {
+          "type": "Control",
+          "label": "* усі відомості, викладені у цьому повідомленні, є достовірними",
+          "scope": "#/properties/dataVerified"
+        }
+      ]
+    }
+  ],
+  "options": {
+    "variant": "stepper",
+    "showNavButtons": true
+  }
+}

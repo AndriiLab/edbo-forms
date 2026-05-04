@@ -1,0 +1,17 @@
+{
+  "header": "Повідомлення про утворення разової ради",
+  "storageKey": "naqaNotification",
+  "fileName": "{student.studentName}_defence_notification_form.json",
+  "beforeFormAlerts": [
+    {
+      "text": "Введені дані не відправляються через мережу Інтернет і можуть бути збережені на Вашому комп'ютері лише після заповнення обов'язкових полів і натиснення на кнопку \"Зберегти\"",
+      "severity": "warning"
+    },
+    {
+      "text": "Поля позначені * є обов'язковими",
+      "severity": "info"
+    }
+  ],
+  "defaultObject": {
+  }
+}
