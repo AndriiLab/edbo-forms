@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react()],
-    base: `/v2/${variant}/`,
+    base: `/edbo-forms/v2/${variant}/`,
     define: {
       __BUILD_DATE__: JSON.stringify(new Date().toISOString()),
     },
