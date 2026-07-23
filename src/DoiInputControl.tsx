@@ -32,6 +32,65 @@ const DoiInputControl = (
     return obj;
   }
 
+  function pickIssn(message: DoiMessage): string | undefined {
+    if (!message.ISSN?.length) return undefined;
+    const printIssn = message['issn-type']?.find(t => t.type === 'print');
+    return printIssn?.value ?? message.ISSN[0];
+  }
+
+  function buildAuthorList(message: DoiMessage): string {
+    let authors = '';
+    for (const author of message.author ?? []) {
+      if (!author.given && !author.family) continue;
+      if (authors) authors += ', ';
+      authors += `${author.given} ${author.family}`;
+    }
+    return authors;
+  }
+
+  function buildDescription(message: DoiMessage, year: number): string {
+    const authors = buildAuthorList(message);
+    const containerTitle = message['container-title']?.[0];
+    let description = `${authors ? authors + '. ' : ''}${message.title[0]}.`;
+
+    switch (message.type) {
+      case 'book-chapter':
+        if (containerTitle) description += ` В кн.: ${containerTitle}.`;
+        if (message.publisher) description += ` ${message.publisher},`;
+        description += ` ${year}`;
+        if (message.page) description += `, ${message.page}`;
+        break;
+      case 'book':
+      case 'monograph':
+        if (message.publisher) description += ` ${message.publisher},`;
+        description += ` ${year}`;
+        break;
+      case 'journal-article':
+        description += ` ${containerTitle ?? ''}, ${year}`;
+        if (message.volume) {
+          description += `, ${message.volume}${message.issue ? `(${message.issue})` : ''}`;
+        }
+        if (message.page) description += `, ${message.page}`;
+        break;
+      default:
+        description += ` ${year}`;
+    }
+
+    return description;
+  }
+
+  const CROSSREF_TYPE_TO_PUBLICATION_TYPE: Record<string, string> = {
+    'book-chapter': 'Розділ у монографії',
+    book: 'Монографія',
+    monograph: 'Монографія',
+  };
+
+  function guessPublicationType(message: DoiMessage): string | undefined {
+    return message.type
+      ? CROSSREF_TYPE_TO_PUBLICATION_TYPE[message.type]
+      : undefined;
+  }
+
   const loadFromDoi = async () => {
     const doi = props.data;
     if (!doi || isLoading) return;
@@ -55,19 +114,20 @@ const DoiInputControl = (
       const year = data.message.published['date-parts'][0][0];
       const link = data.message.resource.primary.URL ?? data.message.URL;
       const hasSoleAuthorship = data.message.author?.length === 1;
-      let description = '';
-      for (const author of data.message.author ?? []) {
-        if (!author.given && !author.family) continue;
-        if (description) description += ', ';
-        description += `${author.given} ${author.family}`;
-      }
-      description += `. ${data.message.title[0]}. ${data.message['container-title'][0]}, ${year}, ${data.message.volume}(${data.message.issue}), ${data.message.page}`;
+      const description = buildDescription(data.message, year);
+      const issn = pickIssn(data.message);
+      const keywords = data.message.subject?.length
+        ? data.message.subject.join(', ')
+        : undefined;
+      const publicationType = guessPublicationType(data.message);
 
       const sourceObject = getSourceObject(
         formData,
         props.path.split('.').slice(0, -1),
       );
-      sourceObject['issn'] = data.message.ISSN[0];
+      if (issn) sourceObject['issn'] = issn;
+      if (keywords) sourceObject['keywords'] = keywords;
+      if (publicationType) sourceObject['type'] = publicationType;
       sourceObject['description'] = description;
       sourceObject['hasSoleAuthorship'] = hasSoleAuthorship;
       sourceObject['link'] = link;
@@ -140,15 +200,18 @@ interface DoiIssnType {
 
 interface DoiMessage {
   DOI: string;
-  ISSN: string[];
+  ISSN?: string[];
   URL: string;
   title: string[];
-  'issn-type': DoiIssnType[];
-  'container-title': string[];
-  volume: string;
-  issue: string;
-  page: string;
-  author: DoiAuthor[];
+  type?: string;
+  publisher?: string;
+  subject?: string[];
+  'issn-type'?: DoiIssnType[];
+  'container-title'?: string[];
+  volume?: string;
+  issue?: string;
+  page?: string;
+  author?: DoiAuthor[];
   resource: DoiResource;
   reference: DoiReference;
   published: DoiDate;
