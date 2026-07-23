@@ -4,6 +4,9 @@ import { DoiInputControlFactory, doiInputTester } from './DoiInputControl';
 import AccordionGroupRenderer, {
   accordionGroupTester,
 } from './AccordionGroupRenderer';
+import CategorizationStepperRenderer, {
+  categorizationStepperTester,
+} from './CategorizationStepperRenderer';
 import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
 import './App.css';
@@ -12,9 +15,10 @@ import {
   materialRenderers,
 } from '@jsonforms/material-renderers';
 import { makeStyles } from '@mui/styles';
-import { AlertColor } from '@mui/material/Alert/Alert';
+import { AlertColor } from '@mui/material/Alert';
 import dayjs from 'dayjs';
 import 'dayjs/locale/uk';
+import { ukrainianTranslate } from './i18n';
 
 // data load
 const variant = import.meta.env.VITE_APP_VARIANT || 'employee';
@@ -119,6 +123,10 @@ const App = () => {
     ...materialRenderers,
     { tester: accordionGroupTester, renderer: AccordionGroupRenderer },
     {
+      tester: categorizationStepperTester,
+      renderer: CategorizationStepperRenderer,
+    },
+    {
       tester: doiInputTester,
       renderer: DoiInputControlFactory(data, d => {
         setData(structuredClone(d));
@@ -202,7 +210,7 @@ const App = () => {
   };
 
   function RenderBeforeForm() {
-    return formData.beforeFormAlerts.map(a => (
+    return formData.beforeFormAlerts.map((a: any) => (
       <Alert
         key={a.text}
         severity={a.severity as AlertColor}
@@ -300,6 +308,7 @@ const App = () => {
               renderers={renderers}
               cells={materialCells}
               onChange={onFormChange}
+              i18n={{ locale: 'uk', translate: ukrainianTranslate }}
             />
           </div>
           {RenderAfterForm()}
