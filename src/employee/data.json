@@ -1,7 +1,7 @@
 {
   "header": "Анкета для реєстрації наукового/науково-педагогічнго співробітника в ЄДЕБО",
   "storageKey": "edboEmployee",
-  "fileName": "{personal.firstNameEng}_{personal.lastNameEng}_form.json",
+  "fileName": "employee_{personal.firstNameEng}_{personal.lastNameEng}.json",
   "beforeFormAlerts": [
     {
       "text": "Введені дані не відправляються через мережу Інтернет і можуть бути збережені на Вашому комп'ютері лише після заповнення обов'язкових полів і натиснення на кнопку \"Зберегти\"",

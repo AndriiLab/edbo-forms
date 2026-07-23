@@ -1,7 +1,7 @@
 {
   "header": "Анкета для реєстрації аспіранта/докторанта в ЄДЕБО",
   "storageKey": "edboStudent",
-  "fileName": "{personal.firstNameEng}_{personal.lastNameEng}_form.json",
+  "fileName": "student_{personal.firstNameEng}_{personal.lastNameEng}.json",
   "beforeFormAlerts": [
     {
       "text": "Введені дані не відправляються через мережу Інтернет і можуть бути збережені на Вашому комп'ютері лише після заповнення обов'язкових полів і натиснення на кнопку \"Зберегти\"",
