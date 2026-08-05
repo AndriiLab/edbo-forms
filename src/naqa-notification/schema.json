@@ -217,7 +217,29 @@
               "hasSecrets": {
                 "type": "boolean"
               }
-            }
+            },
+            "required": [
+              "keywords"
+            ],
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "Публікація в іноземному періодичному індексованому в WoS/Scopus виданні"
+                    }
+                  },
+                  "required": [
+                    "type"
+                  ]
+                },
+                "then": {
+                  "required": [
+                    "issn"
+                  ]
+                }
+              }
+            ]
           }
         }
       },
@@ -318,7 +340,29 @@
               "hasSecrets": {
                 "type": "boolean"
               }
-            }
+            },
+            "required": [
+              "keywords"
+            ],
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "Публікація в іноземному періодичному індексованому в WoS/Scopus виданні"
+                    }
+                  },
+                  "required": [
+                    "type"
+                  ]
+                },
+                "then": {
+                  "required": [
+                    "issn"
+                  ]
+                }
+              }
+            ]
           }
         }
       },
@@ -419,7 +463,29 @@
               "hasSecrets": {
                 "type": "boolean"
               }
-            }
+            },
+            "required": [
+              "keywords"
+            ],
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "Публікація в іноземному періодичному індексованому в WoS/Scopus виданні"
+                    }
+                  },
+                  "required": [
+                    "type"
+                  ]
+                },
+                "then": {
+                  "required": [
+                    "issn"
+                  ]
+                }
+              }
+            ]
           }
         }
       },
@@ -520,7 +586,29 @@
               "hasSecrets": {
                 "type": "boolean"
               }
-            }
+            },
+            "required": [
+              "keywords"
+            ],
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "Публікація в іноземному періодичному індексованому в WoS/Scopus виданні"
+                    }
+                  },
+                  "required": [
+                    "type"
+                  ]
+                },
+                "then": {
+                  "required": [
+                    "issn"
+                  ]
+                }
+              }
+            ]
           }
         }
       },
@@ -621,7 +709,29 @@
               "hasSecrets": {
                 "type": "boolean"
               }
-            }
+            },
+            "required": [
+              "keywords"
+            ],
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "Публікація в іноземному періодичному індексованому в WoS/Scopus виданні"
+                    }
+                  },
+                  "required": [
+                    "type"
+                  ]
+                },
+                "then": {
+                  "required": [
+                    "issn"
+                  ]
+                }
+              }
+            ]
           }
         }
       },
